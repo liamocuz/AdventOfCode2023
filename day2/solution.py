@@ -57,7 +57,7 @@ if __name__ == "__main__":
             "blue": -1
         }
 
-        # Need to parse
+        # Need to parse each line
         game_id: int = int(line.split(':')[0].split(' ')[1])
 
         subsets: list[str] = line.split(':')[1].strip().split(';')
@@ -69,11 +69,7 @@ if __name__ == "__main__":
                 amount: int = int(cube.strip().split(' ')[0])
                 color: str = cube.strip().split(' ')[1]
 
-                if colors[color] == -1:
-                    colors[color] = amount
-                else:
-                    colors[color] = max(colors[color], amount)
-
+                colors[color] = max(colors[color], amount)
             
         total += (colors["red"] * colors["green"] * colors["blue"])
 
